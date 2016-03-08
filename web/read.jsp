@@ -19,5 +19,10 @@
         
         <%=table%>
         
+        <br><br>
+        <a href="add"> Add A New Player </a>
+        
     </body>
 </html>
+
+

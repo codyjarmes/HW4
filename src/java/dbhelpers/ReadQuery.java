@@ -53,7 +53,7 @@ public class ReadQuery {
 public void doRead(){
     
      try {
-         String query = "Select * from players";
+         String query = "Select * from ClevelandIndiansRoster";
          
          PreparedStatement ps = conn.prepareStatement (query);
          this.results = ps.executeQuery();
@@ -77,6 +77,7 @@ public String getHTMLTable (){
              player.setPlayerID(this.results.getInt("PlayerID"));
              player.setPlayerName(this.results.getString("PlayerName"));
              player.setCollege(this.results.getString("College"));
+             player.setPlayerPosition(this.results.getString("PlayerPosition"));
              player.setAge(this.results.getInt("Age"));
              player.setHometown(this.results.getString("Hometown"));
              
