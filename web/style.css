@@ -1,0 +1,36 @@
+
+body {
+	background-color:#D2B48C;
+        margin:0 auto;
+}
+
+table {
+   border-collapse: separate;
+   border: solid white;
+   background-color: white;
+   border-collapse: separate;
+   border-spacing: 7px;
+   
+}
+
+th {
+    background-color: #FFFF99;
+    color: #FFFF99 ;
+}
+h1{
+   text-align: left;
+   color: #FFFF99 ;
+}
+a{
+   
+   color: #FFFF99 ;
+}
+td {
+    background-color: #F08080;
+    color: #FFFF99 ;
+}
+
+
+       
+         
+         

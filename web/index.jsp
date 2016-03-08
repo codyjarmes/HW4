@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cleveland Indians</title>
+        <link rel="stylesheet" type="text/css" href="./style.css" />
     </head>
     <body>
         <h1>Cleveland Indians Database</h1>

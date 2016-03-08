@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/H:/Software_Design_and_Development/NetBeansProjects/ClevelandIndiansApp/src/java/dbhelpers/DeleteQuery.java</file>
+            <file>file:/H:/Software_Design_and_Development/NetBeansProjects/ClevelandIndiansApp/src/java/controller/DeleteServlet.java</file>
+            <file>file:/H:/Software_Design_and_Development/NetBeansProjects/ClevelandIndiansApp/src/java/dbhelpers/ReadQuery.java</file>
+        </group>
     </open-files>
 </project-private>
