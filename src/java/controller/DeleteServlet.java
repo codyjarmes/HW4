@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dbhelpers.AddQuery;
+import dbhelpers.DeleteQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -14,14 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ClevelandIndians;
 
 /**
  *
  * @author jarmes
  */
-@WebServlet(name = "AddServlet", urlPatterns = {"/addPlayer"})
-public class AddServlet extends HttpServlet {
+@WebServlet(name = "DeleteServlet", urlPatterns = {"/delete"})
+public class DeleteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +39,10 @@ public class AddServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddServlet</title>");            
+            out.println("<title>Servlet DeleteServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,9 +60,8 @@ public class AddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            //Pass execution on to doPost
-                doPost (request, response);
+        //pass execution on to doPost
+        doPost(request,response);
     }
 
     /**
@@ -78,38 +76,20 @@ public class AddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //get the data
-        String PlayerName = request.getParameter ("PlayerName");
-        String College = request.getParameter ("College");
-        String PlayerPosition = request.getParameter ("PlayerPosition");
-        int Age = Integer.parseInt (request.getParameter("Age"));
-        String Hometown = request.getParameter ("Hometown");
+        //get the PlayerID
+        int PlayerID = Integer.parseInt(request.getParameter("PlayerID"));
         
-        //set up a player object
-        ClevelandIndians player = new ClevelandIndians ();
-        player.setPlayerName(PlayerName);
-        player.setCollege (College);
-        player.setPlayerPosition (PlayerPosition);
-        player.setAge (Age);
-        player.setHometown (Hometown);
+        //create a deleteQuery object
+        DeleteQuery dq = new DeleteQuery ();
         
-        //set up an addQuery object
-        AddQuery aq = new AddQuery ();
-        //pass the player to addQuery to add to the database
-        aq.doAdd(player);
-        //pass execution control to the ReadServlet
+        //use deleteQuery to delete the object
+        dq.doDelete(PlayerID);
+        
+        //pass execution on to the ReadServlet
         String url = "/read";
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher (url);
-        dispatcher.forward (request, response);
-        
-        
-        
-        
-        
-        
-        
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward (request,response);
     }
 
     /**
