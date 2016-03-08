@@ -11,19 +11,19 @@
         <form name="addForm" action="addPlayer" method="get">
             
             <label> Player Name: </label>
-            <input type="text" name="playername" value="" />
+            <input type="text" name="PlayerName" value="" />
             <br>
             <label> College: </label>
-            <input type="text" name="college" value="" />
+            <input type="text" name="College" value="" />
             <br>
             <label> Player Position: </label>
-            <input type="text" name="playerposition" value="" />
+            <input type="text" name="PlayerPosition" value="" />
             <br>
             <label> Age: </label>
-            <input type="text" name="age" value="" />
+            <input type="text" name="Age" value="" />
             <br>
             <label> Hometown: </label>
-            <input type="text" name="hometown" value="" />
+            <input type="text" name="Hometown" value="" />
             <br>
             <input type="submit" name="submit" value="Submit"/>
             

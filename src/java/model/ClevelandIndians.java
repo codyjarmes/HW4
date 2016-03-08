@@ -15,7 +15,7 @@ private int PlayerID;
 private String PlayerName;
 private String College;
 private String PlayerPosition;
-private int age;
+private int Age;
 private String Hometown;
 
 public ClevelandIndians() {
@@ -23,16 +23,16 @@ public ClevelandIndians() {
         this.PlayerName = "";
         this.College = "";
         this.PlayerPosition = "";
-        this.age = 0;
+        this.Age = 0;
         this.Hometown = "";
     }
 
-public ClevelandIndians(int PlayerID, String PlayerName, String College, String PlayerPosition, int age, String Hometown) {
+public ClevelandIndians(int PlayerID, String PlayerName, String College, String PlayerPosition, int Age, String Hometown) {
         this.PlayerID = PlayerID;
         this.PlayerName = PlayerName;
         this.College = College;
         this.PlayerPosition = PlayerPosition;
-        this.age = age;
+        this.Age = Age;
         this.Hometown = Hometown;
     }
 
@@ -70,11 +70,11 @@ public ClevelandIndians(int PlayerID, String PlayerName, String College, String 
     }
 
     public int getAge() {
-        return age;
+        return Age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int Age) {
+        this.Age = Age;
     }
 
     public String getHometown() {
@@ -87,7 +87,7 @@ public ClevelandIndians(int PlayerID, String PlayerName, String College, String 
 
     @Override
     public String toString() {
-        return "ClevelandIndians{" + "PlayerID=" + PlayerID + ", PlayerName=" + PlayerName + ", College=" + College + ", PlayerPosition=" + PlayerPosition + ", age=" + age + ", Hometown=" + Hometown + '}';
+        return "ClevelandIndians{" + "PlayerID=" + PlayerID + ", PlayerName=" + PlayerName + ", College=" + College + ", PlayerPosition=" + PlayerPosition + ", Age=" + Age + ", Hometown=" + Hometown + '}';
     }
 
     
