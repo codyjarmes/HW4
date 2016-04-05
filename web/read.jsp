@@ -1,8 +1,4 @@
-<%-- 
-    Document   : read
-    Created on : Feb 29, 2016, 10:28:39 PM
-    Author     : jarmes
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,6 +18,8 @@
         
         <br><br>
         <a href="add"> Add A New Player </a>
+        <br><br>
+        <a href="search.jsp"> Search Players </a>
         
     </body>
 </html>

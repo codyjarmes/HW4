@@ -5,7 +5,8 @@
  */
 package controller;
 
-import dbhelpers.ReadQuery;
+import dbhelpers.AddQuery;
+import dbhelpers.UpdateQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -14,13 +15,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.ClevelandIndians;
 
 /**
  *
  * @author jarmes
  */
-@WebServlet(name = "Read", urlPatterns = {"/read"})
-public class Read extends HttpServlet {
+@WebServlet(name = "UpdateServlet", urlPatterns = {"/updatePlayer"})
+public class UpdateServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +41,10 @@ public class Read extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Read</title>");            
+            out.println("<title>Servlet UpdateServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Read at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,8 +64,7 @@ public class Read extends HttpServlet {
             throws ServletException, IOException {
         
         //Pass execution on to doPost
-        doPost(request,response);
-        
+        doPost (request,response);
     }
 
     /**
@@ -77,22 +78,36 @@ public class Read extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-            //Create a ReadQuery helper object
-            ReadQuery rq = new ReadQuery();
-            
-           //Get the HTML table from the ReadQuery object
-            rq.doRead();
-            String table = rq.getHTMLTable();
-            
-            //Pass execution control to read.jsp along with the table.
-            request.setAttribute ("table", table);
-            String url = "/read.jsp";
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher (url);
-            dispatcher.forward (request, response);
-            
+        
+        //get the form data and set up a Player object
+        int PlayerID = Integer.parseInt (request.getParameter("PlayerID"));
+        String PlayerName = request.getParameter ("PlayerName");
+        String College = request.getParameter ("College");
+        String PlayerPosition = request.getParameter ("PlayerPosition");
+        int Age = Integer.parseInt (request.getParameter("Age"));
+        String Hometown = request.getParameter ("Hometown");
+        
+        //set up a player object
+        ClevelandIndians player = new ClevelandIndians ();
+        player.setPlayerID(PlayerID);
+        player.setPlayerName(PlayerName);
+        player.setCollege (College);
+        player.setPlayerPosition (PlayerPosition);
+        player.setAge (Age);
+        player.setHometown (Hometown);
+        
+        //set up an UpdateQuery object
+        UpdateQuery uq = new UpdateQuery ();
+        //pass the player to addQuery to add to the database
+        uq.doUpdate(player);
+        //pass execution control to the ReadServlet
+        String url = "/read";
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher (url);
+        dispatcher.forward (request, response);
     }
 
     
+   
+
 }

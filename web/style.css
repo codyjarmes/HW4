@@ -30,7 +30,16 @@ td {
     color: #FFFF99 ;
 }
 
+input [readonly] {background-color:gray;}
 
        
          
          
+
+.update td {border: none; height: 25px; padding:10px; font-weight: bold;}
+
+
+
+.right {text-align: right;}
+
+
